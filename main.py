@@ -67,11 +67,6 @@ scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
-# Apply SMOTE if selected
-if use_smote:
-    smote = SMOTE(random_state=42)
-    X_train, y_train = smote.fit_resample(X_train, y_train)
-
 # Get Model
 model = get_model(model_option)
 model.fit(X_train, y_train)
